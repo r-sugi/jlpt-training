@@ -65,21 +65,19 @@
   </div>
 
   <div class="row" id="training-container" style="display: none;">
-    <div class="col-md-12">
+    <div class="col-md-12" id="question-section">
       <div class="jumbotron text-center">
-        <h1 id="question">Hello, world!</h1>
-        <p id="timelimit">Time remining</p>
+        <h1 id="question"></h1>
+        <p  id="timelimit"></p>
       </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12" id="answer-section">
       <form id="nandoku">
         <div class="form-group">
           <input id="answer" class="form-control input-lg" type="text"
             placeholder="よみがなを入力してください" aria-describedby="message">
+          <p id="message" class="help-block text-center">漢字の読みがなを入力してください</p>
         </div>
-        <p id="message" class="help-block text-center">
-          漢字の読みがなを入力してください
-        </p>
       </form>
     </div>
   </div>
