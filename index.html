@@ -95,16 +95,23 @@
 </nav>
 
 <script> jQuery(document).ready(function(){
-  var questions = [];
+  var questions  = [];
+  var progress   = 0;
   var intervalId = 0;
   var timeoutSec = 10;
-  var answers = [];
-  var progress = 0;
 
-  function setMessage(m) {
-    var message = jQuery("p#message").html(m).show();
+  function setMessage(bool) {
+    var message = jQuery("p#message")
+      .html(bool ? "Correct" : "Incorrect").show();
+    jQuery("form div.form-group")
+      .removeClass("has-success")
+      .removeClass("has-error")
+      .addClass(bool ? "has-success" : "has-error");
     var timeoutId = setTimeout(function(){
-        message.html("").fadeOut();
+      message.html("").fadeOut();
+      jQuery("form div.form-group")
+        .removeClass("has-success")
+        .removeClass("has-error");
     }, 900);
   }
   function getQuestion() {
@@ -141,10 +148,10 @@
       jQuery("form#nandoku").bind("submit", function(){
         if (answer.val()===q[1]) {
           clearInterval(intervalId);
-          setMessage("正解");
+          setMessage(true);
           setQuestion();
         } else if (answer.val() !== "") {
-          setMessage("不正解");
+          setMessage(false);
         }
         return false;
       });
