@@ -162,7 +162,7 @@
       .success(function(csv){
         var lines = csv.split(/\r\n|\r|\n/), line = [];
         for (var i in lines) {
-          if (questions.length > 3)
+          if (questions.length > 9)
             continue;
           line = lines[i].split(",", 2);
           if (line.length === 2 && line[0].length > 0 && line[1].length > 0)
