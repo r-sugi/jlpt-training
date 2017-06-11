@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JLPT Traning</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style> body { padding-top: 70px; padding-bottom: 70px; } </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">JLPT Traning</a>
+    </div><!-- /.navbar-header -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>
+
+<div class="container">
+  <div class="row" id="navigation-container">
+    <div class="list-group">
+      <a href="#" class="list-group-item" id="init-jlpt-n5" data-object="jlpt-n5">
+        <h4 class="list-group-item-heading">JLPT Level N5 Kanji (79)</h4>
+        <p class="list-group-item-text">...</p>
+      </a>
+      <a href="#" class="list-group-item" id="init-jlpt-n4" data-object="jlpt-n4">
+        <h4 class="list-group-item-heading">JLPT Level N4 Kanji (166)</h4>
+        <p class="list-group-item-text">...</p>
+      </a>
+      <a href="#" class="list-group-item" id="init-jlpt-n3" data-object="jlpt-n3">
+        <h4 class="list-group-item-heading">JLPT Level N3 Kanji (367)</h4>
+        <p class="list-group-item-text">...</p>
+      </a>
+      <a href="#" class="list-group-item" id="init-jlpt-n2" data-object="jlpt-n2">
+        <h4 class="list-group-item-heading">JLPT Level N2 Kanji (367)</h4>
+        <p class="list-group-item-text">...</p>
+      </a>
+      <a href="#" class="list-group-item" id="init-jlpt-n1" data-object="jlpt-n1">
+        <h4 class="list-group-item-heading">JLPT Level N1 Kanji (1232)</h4>
+        <p class="list-group-item-text">...</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="row" id="training-container" style="display: none;">
+    <div class="col-md-12">
+      <div class="jumbotron text-center">
+        <h1 id="question">Hello, world!</h1>
+        <p id="timelimit">Time remining</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <form id="nandoku">
+        <div class="form-group">
+          <input id="answer" class="form-control input-lg" type="text"
+            placeholder="よみがなを入力してください" aria-describedby="message">
+        </div>
+        <p id="message" class="help-block text-center">
+          漢字の読みがなを入力してください
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <p class="navbar-text">
+      <p class="text-muted text-center"><small>Powered by heroku</small></p>
+    </p>
+    <ul class="nav navbar-nav navbar-right">
+      <li><button type="button" class="btn btn-default navbar-btn" onclick="(function(){ location.href = '/'; })()">Exit</button></li>
+    </ul>
+  </div>
+</nav>
+
+<script> jQuery(document).ready(function(){
+  var questions = [];
+  var intervalId = 0;
+  var timeoutSec = 10;
+  var answers = [];
+  var progress = 0;
+
+  function setMessage(m) {
+    var message = jQuery("p#message").html(m).show();
+    var timeoutId = setTimeout(function(){
+        message.html("").fadeOut();
+    }, 900);
+  }
+  function getQuestion() {
+    //return questions[Math.floor(Math.random()*questions.length)];
+    if ((progress + 1) <= questions.length)
+      return questions[progress++];
+    else
+      return false;
+  }
+  function setQuestion() {
+    clearInterval(intervalId);
+    console.log(progress, questions, questions.length);
+    var q = getQuestion();
+    var l = timeoutSec;
+    var question  = jQuery("#question");
+    var answer    = jQuery("#answer");
+    var timelimit = jQuery("#timelimit");
+    if (q === false) {
+      question.html("おわり");
+      answer.val("");
+    } else {
+      question.html(q[0]);
+      answer.val("");
+      answer.focus();
+      timelimit.html("残り" + l + "秒...");
+      intervalId = setInterval(function(){
+        if (--l < 1) {
+          clearInterval(intervalId);
+          timelimit.html("時間切れ... 正しくは「" + q[1] + "」です");
+        } else {
+          timelimit.html("残り" + l + "秒...");
+        }
+      }, 1000);
+      jQuery("form#nandoku").bind("submit", function(){
+        if (answer.val()===q[1]) {
+          clearInterval(intervalId);
+          setMessage("正解");
+          setQuestion();
+        } else if (answer.val() !== "") {
+          setMessage("不正解");
+        }
+        return false;
+      });
+    }
+  }
+
+  function initiateTrainig(courseid) {
+    console.log(courseid.getAttribute('data-object'));
+    jQuery("div#navigation-container").hide();
+    jQuery("div#training-container").show();
+    jQuery
+      .ajax({ url:"./test.csv" })
+      .success(function(csv){
+        var lines = csv.split(/\r\n|\r|\n/), line = [];
+        for (var i in lines) {
+          if (questions.length > 3)
+            continue;
+          line = lines[i].split(",", 2);
+          if (line.length === 2 && line[0].length > 0 && line[1].length > 0)
+            questions[questions.length] = line;
+        }
+        if (questions.length > 0)
+          setQuestion();
+      });
+  }
+  function endOfTraining(courseid) {
+    jQuery("div#navigation-container").hide();
+    jQuery("div#training-container").show();
+  }
+
+  var trainings = ["jlpt-n5", "jlpt-n4", "jlpt-n3", "jlpt-n2", "jlpt-n1"]
+  for (var courseId in trainings) {
+    jQuery("a#init-" + trainings[courseId]).bind("click", function(){
+      initiateTrainig(this);
+    });
+  }
+
+
+}); </script>
+</body>
+</html>
