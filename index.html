@@ -80,6 +80,9 @@
         </div>
       </form>
     </div>
+    <div class="col-md-4 col-md-offset-4" id="backtomenu-section" style="display: none;">
+      <a href="./" class="btn btn-default btn-lg btn-block" role="button">Exit</a>
+    </div>
   </div>
 </div>
 
@@ -130,19 +133,20 @@
     var answer    = jQuery("#answer");
     var timelimit = jQuery("#timelimit");
     if (q === false) {
-      question.html("おわり");
-      answer.val("");
+      timelimit.html("");
+      jQuery("#question").html("おつかれさまでした");
+      endOfTraining();
     } else {
       question.html(q[0]);
       answer.val("");
       answer.focus();
-      timelimit.html("残り" + l + "秒...");
+      timelimit.html("Time remining " + l + " sec...");
       intervalId = setInterval(function(){
         if (--l < 1) {
           clearInterval(intervalId);
-          timelimit.html("時間切れ... 正しくは「" + q[1] + "」です");
+          timelimit.html("Time out... The correct answer is <mark>" + q[1] + "</mark>.");
         } else {
-          timelimit.html("残り" + l + "秒...");
+          timelimit.html("Time remining " + l + " sec...");
         }
       }, 1000);
       jQuery("form#nandoku").bind("submit", function(){
@@ -162,6 +166,8 @@
     console.log(courseid.getAttribute('data-object'));
     jQuery("div#navigation-container").hide();
     jQuery("div#training-container").show();
+    jQuery("#navbar-bottom-credit").hide();
+    jQuery("#navbar-bottom-exit").show();
     jQuery
       .ajax({ url:"./test.csv" })
       .success(function(csv){
@@ -177,9 +183,11 @@
           setQuestion();
       });
   }
-  function endOfTraining(courseid) {
-    jQuery("div#navigation-container").hide();
-    jQuery("div#training-container").show();
+  function endOfTraining() {
+    jQuery("#answer-section").hide();
+    jQuery("#backtomenu-section").show();
+    jQuery("#navbar-bottom-credit").show();
+    jQuery("#navbar-bottom-exit").hide();
   }
 
   var trainings = ["jlpt-n5", "jlpt-n4", "jlpt-n3", "jlpt-n2", "jlpt-n1"]
