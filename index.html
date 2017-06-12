@@ -6,10 +6,10 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style> body { padding-bottom: 70px; } </style>
+  <style> body { padding-bottom: 70px; } div#jlpt-training { margin-top: 16px; } </style>
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id="jlpt-navbar">
   <div class="container">
     <div class="navbar-header">
       <!--button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -37,8 +37,7 @@
     </div--><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
-
-<div class="container">
+<div class="container" id="jlpt-training">
   <div class="row" id="navigation-container">
     <div class="col-md-12">
       <div class="list-group">
@@ -70,7 +69,6 @@
     <div class="col-md-12" id="question-section">
       <div class="jumbotron text-center">
         <h1 id="question"></h1>
-
       </div>
     </div>
     <div class="col-md-12" id="answer-section">
@@ -88,7 +86,6 @@
     </div>
   </div>
 </div>
-
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container">
     <p class="navbar-text text-muted" id="navbar-bottom-credit">
@@ -129,7 +126,6 @@
   }
   function setQuestion() {
     clearInterval(intervalId);
-    console.log(progress, questions, questions.length);
     var q = getQuestion();
     var l = timeoutSec;
     var question  = jQuery("#question");
@@ -148,6 +144,11 @@
         if (--l < 1) {
           clearInterval(intervalId);
           timelimit.html("Time out... The correct answer is <mark>" + q[1] + "</mark>.");
+          answer.hide();
+          jQuery("#backtomenu-section").show();
+          jQuery("#navbar-bottom-credit").show();
+          jQuery("#navbar-bottom-exit").hide();
+          jQuery("#jlpt-navbar").show();
         } else {
           timelimit.html("Time remining " + l + " sec...");
         }
@@ -171,6 +172,7 @@
     jQuery("div#training-container").show();
     jQuery("#navbar-bottom-credit").hide();
     jQuery("#navbar-bottom-exit").show();
+    jQuery("#jlpt-navbar").hide();
     jQuery
       .ajax({ url:"./test.csv" })
       .success(function(csv){
@@ -191,16 +193,14 @@
     jQuery("#backtomenu-section").show();
     jQuery("#navbar-bottom-credit").show();
     jQuery("#navbar-bottom-exit").hide();
+    jQuery("#jlpt-navbar").show();
   }
-
   var trainings = ["jlpt-n5", "jlpt-n4", "jlpt-n3", "jlpt-n2", "jlpt-n1"]
   for (var courseId in trainings) {
     jQuery("a#init-" + trainings[courseId]).bind("click", function(){
       initiateTrainig(this);
     });
   }
-
-
 }); </script>
 </body>
 </html>
