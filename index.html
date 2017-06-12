@@ -206,7 +206,7 @@
     }
     return array;
   }
-  var trainings = ["jlpt-n5", "jlpt-n4", "jlpt-n3", "jlpt-n2", "jlpt-n1"]
+  var trainings = ["jlpt-n5", "jlpt-n4"]; //, "jlpt-n3", "jlpt-n2", "jlpt-n1"]
   for (var courseId in trainings) {
     jQuery("a#init-" + trainings[courseId]).bind("click", function(){
       initiateTrainig(this);
