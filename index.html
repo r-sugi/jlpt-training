@@ -49,15 +49,15 @@
           <h4 class="list-group-item-heading">JLPT Level N4 Kanji (166)</h4>
           <p class="list-group-item-text">...</p>
         </a>
-        <a href="#" class="list-group-item" id="init-jlpt-n3" data-object="jlpt-n3">
+        <a href="#" class="list-group-item disabled" id="init-jlpt-n3" data-object="jlpt-n3">
           <h4 class="list-group-item-heading">JLPT Level N3 Kanji (367)</h4>
           <p class="list-group-item-text">...</p>
         </a>
-        <a href="#" class="list-group-item" id="init-jlpt-n2" data-object="jlpt-n2">
+        <a href="#" class="list-group-item disabled" id="init-jlpt-n2" data-object="jlpt-n2">
           <h4 class="list-group-item-heading">JLPT Level N2 Kanji (367)</h4>
           <p class="list-group-item-text">...</p>
         </a>
-        <a href="#" class="list-group-item" id="init-jlpt-n1" data-object="jlpt-n1">
+        <a href="#" class="list-group-item disabled" id="init-jlpt-n1" data-object="jlpt-n1">
           <h4 class="list-group-item-heading">JLPT Level N1 Kanji (1232)</h4>
           <p class="list-group-item-text">...</p>
         </a>
@@ -92,7 +92,7 @@
       <small>Hosted by GitHub</small>
     </p>
     <ul class="nav navbar-nav navbar-right" id="navbar-bottom-exit" style="display: none;">
-      <li><button type="button" class="btn btn-default navbar-btn" onclick="(function(){ location.href = '/'; })()">Exit</button></li>
+      <li><button type="button" class="btn btn-default navbar-btn" onclick="(function(){ location.href = './'; })()">Exit</button></li>
     </ul>
   </div>
 </nav>
@@ -166,15 +166,14 @@
     }
   }
 
-  function initiateTrainig(courseid) {
-    console.log(courseid.getAttribute('data-object'));
+  function initiateTrainig(anchor) {
     jQuery("div#navigation-container").hide();
     jQuery("div#training-container").show();
     jQuery("#navbar-bottom-credit").hide();
     jQuery("#navbar-bottom-exit").show();
     jQuery("#jlpt-navbar").hide();
     jQuery
-      .ajax({ url:"./test.csv" })
+      .ajax({ url:"./" + anchor.getAttribute('data-object') + ".csv" })
       .success(function(csv){
         var lines = csv.split(/\r\n|\r|\n/), line = [];
         for (var i in lines) {
