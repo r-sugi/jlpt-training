@@ -175,7 +175,8 @@
     jQuery
       .ajax({ url:"./" + anchor.getAttribute('data-object') + ".csv" })
       .success(function(csv){
-        var lines = csv.split(/\r\n|\r|\n/), line = [];
+        var lines = shuffle(csv.split(/\r\n|\r|\n/)), line = [];
+        console.log(csv, lines);
         for (var i in lines) {
           if (questions.length > 9)
             continue;
@@ -193,6 +194,17 @@
     jQuery("#navbar-bottom-credit").show();
     jQuery("#navbar-bottom-exit").hide();
     jQuery("#jlpt-navbar").show();
+  }
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
   }
   var trainings = ["jlpt-n5", "jlpt-n4", "jlpt-n3", "jlpt-n2", "jlpt-n1"]
   for (var courseId in trainings) {
