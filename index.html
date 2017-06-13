@@ -82,6 +82,9 @@
         </div>
       </form>
     </div>
+    <div class="col-md-4 col-md-offset-4" id="resume-questions" style="display: none;">
+      <a class="btn btn-default btn-lg btn-block" role="button">Resume</a>
+    </div>
     <div class="col-md-4 col-md-offset-4" id="backtomenu-section" style="display: none;">
       <a href="./" class="btn btn-default btn-lg btn-block" role="button">Exit</a>
     </div>
@@ -146,6 +149,7 @@
           clearInterval(intervalId);
           timelimit.html("Time out... The correct answer is <mark>" + q[1] + "</mark>.");
           answer.hide();
+          jQuery("#resume-questions").show();
           jQuery("#backtomenu-section").show();
           jQuery("#navbar-bottom-credit").show();
           jQuery("#navbar-bottom-exit").hide();
@@ -191,6 +195,7 @@
   }
   function endOfTraining() {
     jQuery("#answer-section").hide();
+    jQuery("#resume-questions").show();
     jQuery("#backtomenu-section").show();
     jQuery("#navbar-bottom-credit").show();
     jQuery("#navbar-bottom-exit").hide();
