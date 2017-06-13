@@ -1,0 +1,10 @@
+/*------media smartphone for iphone7plus or less------*/
+.jumbotron {
+    padding: 5px 5px;
+    margin-bottom: 10px;
+    color: inherit;
+    background-color: #eee;
+}
+div#jlpt-training {
+    margin-top: 0px;
+}
