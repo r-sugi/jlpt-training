@@ -1,0 +1,12 @@
+.drawer--navbarTopGutter {
+    padding-top: 5.75rem;
+}
+.drawer-hamburger {
+    /*position: relative;*/
+    right: 20px;
+    padding-top: 13px;
+    padding-bottom: 15px;
+}
+.drawer-navbar-header {
+    height: 4.5rem;
+}

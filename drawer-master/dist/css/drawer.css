@@ -19,7 +19,7 @@
   z-index: 101;
   top: 0;
   overflow: hidden;
-  width: 16.25rem;
+  width: 32.25rem;
   height: 100%;
   color: #222;
   background-color: #fff;
@@ -121,7 +121,7 @@
 \*!------------------------------------*/
 
 .drawer--right .drawer-nav {
-  right: -16.25rem;
+  right: -32.25rem;
   -webkit-transition: right .6s cubic-bezier(0.190, 1.000, 0.220, 1.000);
   transition: right .6s cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
