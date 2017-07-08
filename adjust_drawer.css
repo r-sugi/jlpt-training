@@ -9,4 +9,6 @@
 }
 .drawer-navbar-header {
     height: 4.5rem;
+    line-height: 5.0rem;
+    font-size: 2rem;
 }

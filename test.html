@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Slidebars サンプル</title>
+<meta name="viewport" content="initial-scale=1.0">
+
+<!-- Left Drawer CSS -->
+<!-- Slidebars CSS -->
+<link rel="stylesheet" href="./slidebars_header_fix/css/slidebars.css">
+
+<!-- Example Styles -->
+<link rel="stylesheet" href="./slidebars_header_fix/css/style.css">
+
+<!-- Left jQuery -->
+<script src="./slidebars_header_fix/js/jquery-1.11.0.min.js"></script>
+<script src="./slidebars_header_fix/js/slidebars.js"></script>
+<!-- Left Drawer end -->
+
+<script>
+	(function($) {
+		$(document).ready(function() {
+			$.slidebars();
+		});SS
+	}) (jQuery);
+</script>
+
+
+</head>
+
+<body>
+<div id="header" class="sb-slide">
+	<p class="sb-toggle-left">
+		左
+	</p>
+</div>
+<div id="sb-site" class="main_content">
+	コンテンツのなかみ<br>
+	コンテンツのなかみ<br>
+	コンテンツのなかみ<br>
+
+</div>
+<div class="sb-slidebar sb-left">
+	<ul>
+		<li>左メニューのリスト</li>
+		<li>左メニューのリスト</li>
+		<li>左メニューのリスト</li>
+</ul>
+</div>
+<div class="sb-slidebar sb-right">
+	<!-- <ul>
+		<li>右メニューのリスト</li>
+		<li>右メニューのリスト</li>
+		<li>右メニューのリスト</li>
+</ul> -->
+</div>
+</body>
+</html>
