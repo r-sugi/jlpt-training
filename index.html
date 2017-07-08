@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="jp">
 <head>
   <title>JLPT Traning</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="./adjust_bootstrap.css" />
@@ -11,29 +12,70 @@
   <link href="./drawer-master/sandbox/sandbox.css" rel="stylesheet">
   <link href="./drawer-master/dist/css/drawer.css" rel="stylesheet">
   <link href="./adjust_drawer.css" rel="stylesheet">
+
+  <!-- Left Drawer CSS -->
+  <link rel="stylesheet" href="./slidebars_header_fix/css/slidebars.css">
+  <!-- Example Styles -->
+  <link rel="stylesheet" href="./slidebars_header_fix/css/style.css">
+
+  <!-- Left Drawer end -->
+
   <!-- /*<style> body { padding-bottom: 70px; } div#jlpt-training { margin-top: 16px; } </style>*/ -->
 </head>
 
 <body class="drawer drawer--right drawer--navbarTopGutter">
   <header class="drawer-navbar drawer-navbar--fixed" role="banner">
+
     <div class="drawer-container">
     <div class="drawer-navbar-header">
+      <!-- Left Drawer button-->
+      <div class="sb-slide">
+        <a class="sb-toggle-left">
+          ★
+        </a>
+      </div>
+      <div class="sb-slidebar sb-left">
+        <ul>
+          <li>左メニューのリスト</li>
+          <li>左メニューのリスト</li>
+          <li>左メニューのリスト</li>
+        </ul>
+      </div>
+
       <a class="drawer-brand" href="./index.html">JLPT</a>
+
+      <!-- Right Drawer button -->
       <button type="button" class="drawer-toggle drawer-hamburger">
         <span class="sr-only">toggle navigation</span>
         <span class="drawer-hamburger-icon"></span>
       </button>
-
     </div>
 
     <nav class="drawer-nav" role="navigation">
       <ul class="drawer-menu drawer-menu--right">
-        <li><a class="drawer-menu-item" href="#">Description</a></li>
+        <p>Description</p>
         <li><a class="drawer-menu-item" href="#">Hiragana</a></li>
+          <p>たべすぎて、はらがいたい。たべすぎて、はらがいたい。たべすぎて、はらがいたい。</p>
         <li><a class="drawer-menu-item" href="#">Roma ji</a></li>
+          <p>Tabesugite Haraga itai</p>
         <li><a class="drawer-menu-item" href="#">English</a></li>
+          <p>i have too much to eat. my stomach hurts</p>
         <li><a class="drawer-menu-item" href="#">Yomikata</a></li>
+          <p>Kunyomi: はら</p>
+          <p>Onyomi: フク/フッ</p>
         <li><a class="drawer-menu-item" href="#">review</a></li>
+          <p>
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
+            以上
+          </p>
+
+
         <!-- <li class="drawer-dropdown">
           <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
             Navbar <span class="drawer-caret"></span>
@@ -98,7 +140,11 @@
       </div--><!-- /.navbar-collapse -->
     <!-- </div>
   </nav> -->
-  <div class="container" id="jlpt-training">
+
+
+
+  <!-- <div class="container" id="jlpt-training"> -->
+  <div id="sb-site" class="main_content">
     <div class="row" id="navigation-container">
       <div class="col-md-12">
         <div class="list-group">
@@ -282,11 +328,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Left jQuery -->
+<script src="./slidebars_header_fix/js/jquery-1.11.0.min.js"></script>
+<script src="./slidebars_header_fix/js/slidebars.js"></script>
+
+<!-- Right Drawer js-->
 <script src="./drawer-master/dist/js/drawer.min.js" charset="utf-8"></script>
 <script>
   $(document).ready(function() {
     $('.drawer').drawer();
-  });
+
+  },function(){
+    $('sb-toggle-left').hide();
+  }
+
+);
 </script>
+<!-- Left drawer -->
+<script>
+	(function($) {
+		$(document).ready(function() {
+			$.slidebars();
+		});SS
+	}) (jQuery);
+</script>
+
 </body>
 </html>
