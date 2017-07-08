@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+
+body {
+	/*background-color: #FFFFFF;*/
+}
+
+.sb-slidebar {
+	color: #fff;
+}
+
+.main_content {
+	padding-top: 50px;
+}
+
+#header {
+	/*position: fixed;*/
+	top: 0;
+	width: 100%;
+	height: 50px;
+	background-color: red;
+	z-index: 4;
+}
+
+#header .sb-toggle-left {
+	float: left;
+	font-size: 2rem;
+	width: 2em;
+	display: inline;
+	text-align: left;
+	line-height: 4.5rem;
+}
+
+/*#header .sb-toggle-right {
+	float: right;
+	width: 2em;
+}*/

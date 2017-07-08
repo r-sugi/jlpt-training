@@ -1,128 +1,81 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="en" class="bg-lime">
 <head>
-  <title>JLPT Traning</title>
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: Drawer Right with fixed navbar</title>
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./adjust_bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../adjust_bootstrap.css" />
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/drawer.css" rel="stylesheet">
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <link href="./drawer-master/sandbox/sandbox.css" rel="stylesheet">
-  <link href="./drawer-master/dist/css/drawer.css" rel="stylesheet">
-  <link href="./adjust_drawer.css" rel="stylesheet">
-
-  <!-- Left Drawer CSS -->
-  <link rel="stylesheet" href="./slidebars_header_fix/css/slidebars.css">
-  <!-- Example Styles -->
-  <link rel="stylesheet" href="./slidebars_header_fix/css/style.css">
-
-  <!-- Left Drawer end -->
-
-  <!-- /*<style> body { padding-bottom: 70px; } div#jlpt-training { margin-top: 16px; } </style>*/ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<!-- drawer-right -->
 <body class="drawer drawer--right drawer--navbarTopGutter">
   <header class="drawer-navbar drawer-navbar--fixed" role="banner">
-
     <div class="drawer-container">
-    <div class="drawer-navbar-header">
-      <!-- Left Drawer button-->
-      <div class="sb-slide">
-        <a class="sb-toggle-left">
-          ★
-        </a>
+      <div class="drawer-navbar-header">
+        <a class="drawer-brand" href="./index.html">Drawer</a>
+        <button type="button" class="drawer-toggle drawer-hamburger">
+          <span class="sr-only">toggle navigation</span>
+          <span class="drawer-hamburger-icon"></span>
+        </button>
       </div>
-      <div class="sb-slidebar sb-left">
-        <ul>
-          <li>左メニューのリスト</li>
-          <li>左メニューのリスト</li>
-          <li>左メニューのリスト</li>
+
+      <nav class="drawer-nav" role="navigation">
+        <ul class="drawer-menu drawer-menu--right">
+          <li><a class="drawer-menu-item" href="./top.html">Top</a></li>
+          <li><a class="drawer-menu-item" href="./index.html">Left</a></li>
+          <li><a class="drawer-menu-item" href="./right.html">Right</a></li>
+          <li class="drawer-dropdown">
+            <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+              Navbar <span class="drawer-caret"></span>
+            </a>
+            <ul class="drawer-dropdown-menu">
+              <li><a class="drawer-dropdown-menu-item" href="./navbar-top.html">Top</a></li>
+              <li><a class="drawer-dropdown-menu-item" href="./navbar-left.html">Left</a></li>
+              <li><a class="drawer-dropdown-menu-item" href="./navbar-right.html">Right</a></li>
+            </ul>
+          </li>
+          <li class="drawer-dropdown">
+            <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+              Fixed navbar <span class="drawer-caret"></span>
+            </a>
+            <ul class="drawer-dropdown-menu">
+              <li><a class="drawer-dropdown-menu-item" href="./fixed-navbar-top.html">Top</a></li>
+              <li><a class="drawer-dropdown-menu-item" href="./fixed-navbar-left.html">Left</a></li>
+              <li><a class="drawer-dropdown-menu-item" href="./fixed-navbar-right.html">Right</a></li>
+            </ul>
+          </li>
+          <li class="drawer-dropdown">
+            <a class="drawer-menu-item" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+              Sidebar <span class="drawer-caret"></span>
+            </a>
+            <ul class="drawer-dropdown-menu">
+              <li><a class="drawer-dropdown-menu-item" href="./sidebar-left.html">Left</a></li>
+              <li><a class="drawer-dropdown-menu-item" href="./sidebar-right.html">Right</a></li>
+            </ul>
+          </li>
         </ul>
-      </div>
-
-      <a class="drawer-brand" href="./index.html">JLPT</a>
-
-      <!-- Right Drawer button -->
-      <button type="button" class="drawer-toggle drawer-hamburger">
-        <span class="sr-only">toggle navigation</span>
-        <span class="drawer-hamburger-icon"></span>
-      </button>
+      </nav>
     </div>
-
-    <nav class="drawer-nav" role="navigation">
-      <ul class="drawer-menu drawer-menu--right">
-        <p>Description</p>
-        <li><a class="drawer-menu-item" href="#">Hiragana</a></li>
-          <p>たべすぎて、はらがいたい。たべすぎて、はらがいたい。たべすぎて、はらがいたい。</p>
-        <li><a class="drawer-menu-item" href="#">Roma ji</a></li>
-          <p>Tabesugite Haraga itai</p>
-        <li><a class="drawer-menu-item" href="#">English</a></li>
-          <p>i have too much to eat. my stomach hurts</p>
-        <li><a class="drawer-menu-item" href="#">Yomikata</a></li>
-          <p>Kunyomi: はら</p>
-          <p>Onyomi: フク/フッ</p>
-        <li><a class="drawer-menu-item" href="#">review</a></li>
-          <p>
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            ここに何かかくここに何かかくここに何かかくここに何かかくここに何かかくここに何かかく
-            以上
-          </p>
-
-
-        <!-- <li class="drawer-dropdown">
-          <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-            Navbar <span class="drawer-caret"></span>
-          </a>
-          <ul class="drawer-dropdown-menu">
-            <li><a class="drawer-dropdown-menu-item" href="./navbar-top.html">Top</a></li>
-            <li><a class="drawer-dropdown-menu-item" href="./navbar-left.html">Left</a></li>
-            <li><a class="drawer-dropdown-menu-item" href="./navbar-right.html">Right</a></li>
-          </ul>
-        </li>
-        <li class="drawer-dropdown">
-          <a class="drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-            Fixed navbar <span class="drawer-caret"></span>
-          </a>
-          <ul class="drawer-dropdown-menu">
-            <li><a class="drawer-dropdown-menu-item" href="./fixed-navbar-top.html">Top</a></li>
-            <li><a class="drawer-dropdown-menu-item" href="./fixed-navbar-left.html">Left</a></li>
-            <li><a class="drawer-dropdown-menu-item" href="./fixed-navbar-right.html">Right</a></li>
-          </ul>
-        </li> -->
-        <!-- <li class="drawer-dropdown">
-          <a class="drawer-menu-item" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-            Sidebar <span class="drawer-caret"></span>
-          </a>
-          <ul class="drawer-dropdown-menu">
-            <li><a class="drawer-dropdown-menu-item" href="./sidebar-left.html">Left</a></li>
-            <li><a class="drawer-dropdown-menu-item" href="./sidebar-right.html">Right</a></li>
-          </ul>
-        </li> -->
-      </ul>
-    </nav>
-
-  </div>
   </header>
 
-  <!-- <nav class="navbar navbar-default" id="jlpt-navbar">
+  <nav class="navbar navbar-default" id="jlpt-navbar">
     <div class="container">
-      <div class="navbar-header"> -->
+      <div class="navbar-header">
         <!--button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button-->
-        <!-- <a class="navbar-brand" href="/">JLPT Traning</a>
-      </div> -->
-      <!-- /.navbar-header -->
+        <a class="navbar-brand" href="/">JLPT Traning</a>
+      </div><!-- /.navbar-header -->
       <!--div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Link</a></li>
@@ -138,13 +91,9 @@
           </li>
         </ul>
       </div--><!-- /.navbar-collapse -->
-    <!-- </div>
-  </nav> -->
-
-
-
-  <!-- <div class="container" id="jlpt-training"> -->
-  <div id="sb-site" class="main_content">
+    </div><!-- /.container -->
+  </nav>
+  <div class="container" id="jlpt-training">
     <div class="row" id="navigation-container">
       <div class="col-md-12">
         <div class="list-group">
@@ -206,12 +155,15 @@
       </ul>
     </div>
   </nav>
+</body>
+<!-- end drawer content right -->
 
+<!-- script -->
 <script> jQuery(document).ready(function(){
   var questions  = [];
   var progress   = 0;
   var intervalId = 0;
-  var timeoutSec = 20;
+  var timeoutSec = 10;
 
   function setMessage(bool) {
     var message = jQuery("p#message")
@@ -324,34 +276,17 @@
       initiateTrainig(this);
     });
   }
-}); </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Left jQuery -->
-<script src="./slidebars_header_fix/js/jquery-1.11.0.min.js"></script>
-<script src="./slidebars_header_fix/js/slidebars.js"></script>
+  });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../dist/js/drawer.min.js" charset="utf-8"></script>
+  <script>
+    $(document).ready(function() {
+      $('.drawer').drawer();
+    });
+  </script>
 
-<!-- Right Drawer js-->
-<script src="./drawer-master/dist/js/drawer.min.js" charset="utf-8"></script>
-<script>
-  $(document).ready(function() {
-    $('.drawer').drawer();
-
-  },function(){
-    $('sb-toggle-left').hide();
-  }
-
-);
-</script>
-<!-- Left drawer -->
-<script>
-	(function($) {
-		$(document).ready(function() {
-			$.slidebars();
-		});SS
-	}) (jQuery);
-</script>
-
-</body>
+<!-- </body> -->
 </html>
